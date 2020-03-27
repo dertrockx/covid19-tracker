@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Sidebar from "./components/Sidebar/Sidebar";
+import CasesPH from "./components/Views/CasesPH";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import CasesState from "./context/cases/CasesState";
+
+import { Layout, Typography } from 'antd';
+const { Title } = Typography;
+const { Header, Content, Footer } = Layout;
+
+
+const App = () => {
+  return(
+    <CasesState>
+      <Layout style={{ minHeight: '100vh' }}>
+        <Router>
+          <Sidebar />
+          <Layout className="site-layout">
+            <Content className="site-content">
+              <div className="site-layout-background" style={{ padding: 24 }}>
+                  <Switch>
+                    <Route 
+                      path={["/", "/cases-ph"]} 
+                      component={ CasesPH }
+                    />
+                  </Switch>
+              </div>
+            </Content>
+            <Footer style={{ textAlign: 'center' }}></Footer>
+          </Layout>
+        </Router>
+      </Layout>
+    </CasesState>
+  )
 }
 
 export default App;

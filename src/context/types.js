@@ -1,0 +1,4 @@
+export const GET_PH_CASES = 'GET_PH_CASES';
+export const GET_PH_FAILED = 'GET_PH_FAILED';
+export const GET_OUTSIDE_CASES = 'GET_OUTSIDE_CASES';
+export const GET_OUTSIDE_FAILED = 'GET_OUTSIDE_FAILED';
